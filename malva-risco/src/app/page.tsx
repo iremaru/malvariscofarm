@@ -11,7 +11,10 @@ export default function Home() {
 	const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(true);
 	const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
-	const mobileMenu = (<div className="md:hidden hidden bg-white w-full px-6 py-4 shadow-md" id="mobile-menu" >
+	const mobileMenu = ('WIP')
+	/*
+	{
+		<div className="md:hidden hidden bg-white w-full px-6 py-4 shadow-md" id="mobile-menu" >
 		<div className="flex flex-col space-y-4">
 			<a href="#inicio" className="text-green-700 hover:text-green-600 font-medium">Inicio</a>
 			<a href="#finca" className="text-gray-700 hover:text-green-600 font-medium">La Finca</a>
@@ -20,8 +23,11 @@ export default function Home() {
 			<a href="#contacto" className="text-gray-700 hover:text-green-600 font-medium">Contacto</a>
 		</div>
 	</div>
-	)
-	/* const handleMenuToggle = () => {
+)
+}
+	*/
+	/* 
+	const handleMenuToggle = () => {
 		const mobileMenu = document.getElementById("mobile-menu");
 		const mobileMenuButton = document.getElementById("mobile-menu-button");
 		if (mobileMenu && mobileMenuButton) {
@@ -33,7 +39,8 @@ export default function Home() {
 				mobileMenuButton.classList.remove("hidden");
 			}
 		}
-	}; */
+	};
+	 */
 
 	return (
 		<div className={styles.page}>
@@ -59,7 +66,7 @@ export default function Home() {
 						</nav>)
 					}
 				</div>
-				{/*(isMobile && mobileMenuIsOpen) && mobileMenu*/}
+				{(isMobile && mobileMenuIsOpen) && mobileMenu}
 			</header>
 			<section id="inicio" className={styles.heroImg}>
 				<div className={styles.overlay}>
