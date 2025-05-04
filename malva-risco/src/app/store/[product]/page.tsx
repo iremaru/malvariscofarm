@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface Props {
+interface PageProps {
 	params: {
 		product: string;
 	};
@@ -9,7 +9,7 @@ interface Props {
 	};
 }
 
-export default function ProductPage({ params, searchParams }: Props) {
+export default function ProductPage({ params, searchParams }: PageProps) {
 	const { product } = params;
 
 	return (
