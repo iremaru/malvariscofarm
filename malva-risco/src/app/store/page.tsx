@@ -1,9 +1,8 @@
 import React from 'react'
 
-export const Store = () => {
+export default function Store() {
 	return (
 		<div>store</div>
 	)
 }
 
-export default Store;

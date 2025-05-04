@@ -9,7 +9,7 @@ interface Props {
 	};
 }
 
-export const ProductPage = ({ params, searchParams }: Props) => {
+export default function ProductPage({ params, searchParams }: Props) {
 	const { product } = params;
 
 	return (
@@ -30,4 +30,3 @@ export const ProductPage = ({ params, searchParams }: Props) => {
 	)
 }
 
-export default ProductPage;
