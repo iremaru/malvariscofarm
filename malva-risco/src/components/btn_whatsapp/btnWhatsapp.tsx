@@ -7,7 +7,7 @@ export const BtnWhatsapp = ({
 	cta = '',
 	isFloating = true
 }) => {
-	const telfone = "34697581719";
+	const telfone = "34647184827";
 	const mensaje = `Hola, Finca Malva-Risco, ${msg}`;
 	return (
 		<a href={`https://wa.me/${telfone}?text=${encodeURIComponent(mensaje)}`}
