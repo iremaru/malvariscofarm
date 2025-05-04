@@ -65,6 +65,7 @@ button {
 
 	animation: pulse 2s infinite;
 }
+
 .whatsapp-btn {
 	display: flex;
 	align-items: center;
@@ -85,6 +86,7 @@ button {
 	--tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+
 .whatsapp-btn:hover {
 	background-color: rgb(187 247 208);
 	transition-duration: 300ms;
@@ -92,7 +94,8 @@ button {
 		0 10px 15px -3px rgba(0, 0, 0, 0.1),
 		0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
-a.whatsapp-btn > span.whatsapp-text {
+
+a.whatsapp-btn>span.whatsapp-text {
 	margin: 0;
 }
 
@@ -100,16 +103,18 @@ a.whatsapp-btn > span.whatsapp-text {
 	0% {
 		box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
 	}
+
 	70% {
 		box-shadow: 0 0 0 15px rgb(37, 211, 102, 0);
 	}
+
 	100% {
 		box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
 	}
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
 	}
-}
+} */
