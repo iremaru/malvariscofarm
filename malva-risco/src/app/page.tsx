@@ -101,8 +101,7 @@ export default function Home() {
 				<div>
 					<h3>Ubicación</h3>
 					<div className="bg-gray-100 p-4 rounded-lg">
-
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.372071202108!2d-16.41000068491995!3d28.31272248253083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cce7a9a6a0a5%3A0x3e8a1a9a1a9a1a9a!2sG%C3%BC%C3%ADmar%2C%20Santa%20Cruz%20de%20Tenerife!5e0!3m2!1ses!2ses!4v1620000000000!5m2!1ses!2ses"
+						<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3178.384437751928!2d-16.3938611!3d28.321666699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDE5JzE4LjAiTiAxNsKwMjMnMzcuOSJX!5e1!3m2!1ses!2ses!4v1746382808426!5m2!1ses!2ses"
 							width="100%"
 							height="400"
 							style={{ border: 0 }}
