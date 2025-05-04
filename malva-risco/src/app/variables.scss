@@ -1,10 +1,10 @@
 $background: #f8ebc8;
 $foreground: #1a2b03;
 $color-brand: #962490;
+$color-brand-alter: oklch(44.8% 0.119 151.328);
 $color-brand-light: #a872a5;
 $color-brand-dark: #4c0449;
-
-
+$font-title: var(--font-nunito);
 
 @media (prefers-color-scheme: dark) {
 	:root {
