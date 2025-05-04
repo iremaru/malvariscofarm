@@ -5,42 +5,31 @@ import styles from "./page.module.scss";
 import { useMediaQuery } from "react-responsive";
 import CarouselFarm from "@/components/carousel_farm/carouselFarm";
 import { ProductShowroom } from "@/components/productShowroom/productShowroom";
-//import { InstagramShowroom } from "@/components/instagramShowroom/instagramShowroom";
 
 export default function Home() {
-	const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(true);
+	const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
 	const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
-	const mobileMenu = ('WIP')
-	/*
-	{
-		<div className="md:hidden hidden bg-white w-full px-6 py-4 shadow-md" id="mobile-menu" >
-		<div className="flex flex-col space-y-4">
-			<a href="#inicio" className="text-green-700 hover:text-green-600 font-medium">Inicio</a>
-			<a href="#finca" className="text-gray-700 hover:text-green-600 font-medium">La Finca</a>
-			<a href="#productos" className="text-gray-700 hover:text-green-600 font-medium">Productos</a>
-			<a href="#galeria" className="text-gray-700 hover:text-green-600 font-medium">Galería</a>
-			<a href="#contacto" className="text-gray-700 hover:text-green-600 font-medium">Contacto</a>
-		</div>
-	</div>
-)
-}
-	*/
-	/* 
+
 	const handleMenuToggle = () => {
-		const mobileMenu = document.getElementById("mobile-menu");
-		const mobileMenuButton = document.getElementById("mobile-menu-button");
-		if (mobileMenu && mobileMenuButton) {
-			if (mobileMenu.classList.contains("hidden")) {
-				mobileMenu.classList.remove("hidden");
-				mobileMenuButton.classList.add("hidden");
-			} else {
-				mobileMenu.classList.add("hidden");
-				mobileMenuButton.classList.remove("hidden");
-			}
-		}
+		setMobileMenuIsOpen((prev) => !prev);
 	};
-	 */
+
+	const navLinks = <>
+		<a href="#inicio" className={styles.link}>Inicio</a>
+		<a href="#finca" className={styles.link}>La Finca</a>
+		<a href="#productos" className={styles.link}>Productos</a>
+		<a href="#galeria" className={styles.link}>Galería</a>
+		<a href="#contacto" className={styles.link}>Contacto</a>
+	</>;
+	const mobileMenu = (
+		<div className={styles.mobile_menu}
+			onClick={handleMenuToggle}>
+			{navLinks}
+		</div>
+	)
+
+
 
 	return (
 		<div className={styles.page}>
@@ -52,17 +41,13 @@ export default function Home() {
 					</div>
 					{isMobile
 						? <button className={styles.menu_btn}
-							onClick={() => setMobileMenuIsOpen(old => !old)} id="mobile-menu-button">
+							onClick={handleMenuToggle} id="mobile-menu-button">
 							<svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
 							</svg>
 						</button>
 						: (<nav>
-							<a href="#inicio" className={styles.link}>Inicio</a>
-							<a href="#finca" className={styles.link}>La Finca</a>
-							<a href="#productos" className={styles.link}>Productos</a>
-							<a href="#galeria" className={styles.link}>Galería</a>
-							<a href="#contacto" className={styles.link}>Contacto</a>
+							{navLinks}
 						</nav>)
 					}
 				</div>

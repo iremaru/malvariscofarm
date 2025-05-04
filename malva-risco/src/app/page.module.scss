@@ -64,6 +64,11 @@
 			0 1px 2px -1px rgb(0 0 0 / 0.1);
 		z-index: 40;
 
+		@media (max-width: 768px) {
+			background-color: rgba(255, 255, 255, 1);
+
+		}
+
 		.container {
 			display: flex;
 			justify-content: space-between;
@@ -85,21 +90,6 @@
 				}
 			}
 
-			>nav {
-				display: flex;
-				gap: 20px;
-
-				.link {
-					color: $color-brand-alter;
-					font-weight: 500;
-
-					&:hover {
-						color: $color-brand;
-					}
-				}
-
-			}
-
 			>.menu_btn {
 
 				/* background-color: red;
@@ -117,6 +107,45 @@
 				}
 			}
 		}
+
+		nav,
+		.mobile_menu {
+			display: flex;
+			gap: 20px;
+
+			@media (max-width: 768px) {
+				padding: 1rem 1.5rem;
+				flex-direction: column;
+				gap: 0;
+
+				.link {
+					font-weight: 700;
+
+				}
+			}
+
+			.link {
+				color: $color-brand-alter;
+				font-weight: 500;
+
+				@media (max-width: 768px) {
+					padding: 1rem 1.5rem;
+					font-weight: 700;
+				}
+
+				&:hover {
+					color: $color-brand;
+
+					@media (max-width: 768px) {
+						background-color: rgb(228, 210, 176, 0.2);
+						border-radius: 9999px;
+					}
+				}
+			}
+
+		}
+
+
 
 		.logo_malva {
 			height: 10px;
@@ -265,9 +294,3 @@
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {}
-
-@media (max-width: 768px) {
-	nav>a.link {
-		display: none;
-	}
-}
