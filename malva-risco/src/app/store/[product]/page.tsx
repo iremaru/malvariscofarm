@@ -1,15 +1,9 @@
 import React from 'react'
 
-interface PageProps {
-	params: {
-		product: string;
-	};
-	searchParams: {
-		[key: string]: string | string[] | undefined;
-	};
-}
-
-export default function ProductPage({ params, searchParams }: PageProps) {
+export default function ProductPage({ params, searchParams }: {
+	params: { product: string };
+	searchParams: { [key: string]: string | string[] | undefined };
+}) {
 	const { product } = params;
 
 	return (
