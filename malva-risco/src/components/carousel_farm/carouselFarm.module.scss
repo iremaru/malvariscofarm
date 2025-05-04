@@ -1,0 +1,12 @@
+@import '../../app/variables.scss';
+
+
+.carouselFarm {
+	z-index: 0;
+
+	>img {
+		background-size: cover;
+		background-position: center;
+		object-fit: cover;
+	}
+}
