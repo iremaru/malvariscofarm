@@ -6,7 +6,6 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false
 import "./globals.scss";
 import { BtnWhatsapp } from "@/components/btn_whatsapp/btnWhatsapp";
-import Image from "next/image";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
