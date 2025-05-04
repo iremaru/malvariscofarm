@@ -59,7 +59,7 @@ export default function Home() {
 						</nav>)
 					}
 				</div>
-				{(isMobile && mobileMenuIsOpen) && mobileMenu}
+				{/*(isMobile && mobileMenuIsOpen) && mobileMenu*/}
 			</header>
 			<section id="inicio" className={styles.heroImg}>
 				<div className={styles.overlay}>
