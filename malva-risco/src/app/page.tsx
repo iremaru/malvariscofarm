@@ -5,7 +5,7 @@ import styles from "./page.module.scss";
 import { useMediaQuery } from "react-responsive";
 import CarouselFarm from "@/components/carousel_farm/carouselFarm";
 import { ProductShowroom } from "@/components/productShowroom/productShowroom";
-import { InstagramShowroom } from "@/components/instagramShowroom/instagramShowroom";
+//import { InstagramShowroom } from "@/components/instagramShowroom/instagramShowroom";
 
 export default function Home() {
 	const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(true);
@@ -111,12 +111,13 @@ export default function Home() {
 				<ProductShowroom />
 			</section>
 
+
+			{/* 
 			<section id="galeria" className="py-20 bg-white">
 				<h2 className={styles.brandingTitle}>Desde Instagram</h2>
 				<InstagramShowroom />
 			</section>
-
-			{/* <section id="contacto" className="py-20 bg-green-800 text-white">
+			<section id="contacto" className="py-20 bg-green-800 text-white">
 				<div className="container mx-auto px-6">
 					<h2 className="text-3xl font-bold text-center mb-12">Hablemos directamente</h2>
 
