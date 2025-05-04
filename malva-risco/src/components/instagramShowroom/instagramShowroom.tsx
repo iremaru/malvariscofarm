@@ -48,7 +48,7 @@ export const InstagramShowroom = () => {
 	return (<>
 		<p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">Síguenos en Instagram para ver el día a día en nuestra finca y conocer nuestros productos de temporada.</p>
 
-		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+		<div>
 			{instagramPosts.map((post) => instaImg(post.url))}
 		</div>
 
