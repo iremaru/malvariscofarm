@@ -1,58 +1,13 @@
-'use client';
-import { useState } from "react";
+'use client'
 import Image from "next/image";
 import styles from "./page.module.scss";
-import { useMediaQuery } from "react-responsive";
 import CarouselFarm from "@/components/carousel_farm/carouselFarm";
 import { ProductShowroom } from "@/components/productShowroom/productShowroom";
 
 export default function Home() {
-	const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
-	const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
-
-
-	const handleMenuToggle = () => {
-		setMobileMenuIsOpen((prev) => !prev);
-	};
-
-	const navLinks = <>
-		<a href="#inicio" className={styles.link}>Inicio</a>
-		<a href="#finca" className={styles.link}>La Finca</a>
-		<a href="#productos" className={styles.link}>Productos</a>
-		<a href="#galeria" className={styles.link}>Galería</a>
-		<a href="#contacto" className={styles.link}>Contacto</a>
-	</>;
-	const mobileMenu = (
-		<div className={styles.mobile_menu}
-			onClick={handleMenuToggle}>
-			{navLinks}
-		</div>
-	)
-
-
 
 	return (
 		<div className={styles.page}>
-			<header className={styles.header}>
-				<div className={styles.container}>
-					<div>
-						<Image src="/logo.svg" alt="Logo Malva-Risco" className={styles.logo_malva} width={50} height={50} />
-						<p className={styles.title}>Finca Malva-Risco</p>
-					</div>
-					{isMobile
-						? <button className={styles.menu_btn}
-							onClick={handleMenuToggle} id="mobile-menu-button">
-							<svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-							</svg>
-						</button>
-						: (<nav>
-							{navLinks}
-						</nav>)
-					}
-				</div>
-				{(isMobile && mobileMenuIsOpen) && mobileMenu}
-			</header>
 			<section id="inicio" className={styles.heroImg}>
 				<div className={styles.overlay}>
 					<h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Cultivamos salud en Güímar, Tenerife</h1>

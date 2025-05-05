@@ -6,6 +6,8 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false
 import "./globals.scss";
 import { BtnWhatsapp } from "@/components/btn_whatsapp/btnWhatsapp";
+import Image from "next/image";
+import { Navbar } from "@/components/navbar/navbar";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -33,18 +35,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 		<html lang="es">
 			<body className={`${geistSans.variable} ${geistMono.variable} ${nunito.variable}`}>
 				<BtnWhatsapp />
-				{/* <nav className="navbar">
-					<ul>
-						<li>
-							<Link href="/">Home</Link>
-						</li>
-						<li>
-							<Link href="/store">Store</Link>
-						</li>
-					</ul>
-				</nav> */}
+				<Navbar />
 				{children}
 				<footer>
+					<Image
+						src="/certificates/Contraetiqueta-2019.jpg"
+						alt="Certificado de agricultura ecológica"
+						className="ecolabel"
+						width={50}
+						height={75} />
 					<div>
 						<p>&copy; <span id="year">{new Date().getFullYear()}</span> Finca Malva-Risco. Todos los derechos reservados.</p>
 					</div>
