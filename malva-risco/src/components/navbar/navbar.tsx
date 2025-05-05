@@ -17,7 +17,7 @@ export const Navbar = () => {
 		<Link href="/#inicio" className={styles.link}>Inicio</Link>
 		<Link href="/#finca" className={styles.link}>La Finca</Link>
 		<Link href="/#productos" className={styles.link}>Productos</Link>
-		<Link href="/store" className={styles.link}>Store</Link>
+		<Link href="/store" className={styles.link}>Tienda</Link>
 	</>;
 	const mobileMenu = (
 		<div className={styles.mobile_menu}
