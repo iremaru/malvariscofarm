@@ -1,0 +1,25 @@
+.productCard {
+	background-color: rgb(244, 234, 197);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	//border-radius: 9999px 9999px 0 0;
+	border-radius: 5% 5% 0 0;
+
+	overflow: hidden;
+
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+	&:hover {
+		box-shadow: 9px 9px 7px 0px #0000001a, 0 4px 6px -2px #0000000d;
+		transform: rotate(1deg);
+	}
+
+	img {
+		background-color: rgb(152, 139, 152);
+		object-fit: cover;
+	}
+}
