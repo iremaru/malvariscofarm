@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Nunito } from "next/font/google";
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import { config } from '@fortawesome/fontawesome-svg-core';
-config.autoAddCss = false
-import "./globals.scss";
-import { BtnWhatsapp } from "@/components/btn_whatsapp/btnWhatsapp";
 import Image from "next/image";
+import { config } from '@fortawesome/fontawesome-svg-core';
+import { BtnWhatsapp } from "@/components/btn_whatsapp/btnWhatsapp";
 import { Navbar } from "@/components/navbar/navbar";
+import "./globals.scss";
+
+config.autoAddCss = false;
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
