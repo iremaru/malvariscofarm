@@ -1,33 +1,35 @@
 import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+
+import type { NextRequest } from 'next/server';
 
 export async function middleware(req: NextRequest) {
 	const res = NextResponse.next();
-
 	const supabase = createMiddlewareClient({ req, res });
+	const {
+		data: { session },
+	} = await supabase.auth.getSession();
 
-	const { data: { user } } = await supabase.auth.getUser();
+	// Rutas que deseas proteger
+	const adminRoutes = /^\/admin(\/.*)?$/;
+	const loginRoute = '/admin/login';
 
-	const host = req.headers.get('host') || '';
-	const url = req.nextUrl.clone();
-
-	// Subdominio admin => necesita autenticación
-	if (host.startsWith('admin.')) {
-		if (!user) {
-			url.pathname = '/login';
-			return NextResponse.redirect(url);
+	// Comprueba si la ruta actual coincide con las rutas de administración
+	if (adminRoutes.test(req.nextUrl.pathname)) {
+		// Si no hay sesión y no estás en la página de login, redirige al login
+		if (!session && req.nextUrl.pathname !== loginRoute) {
+			return NextResponse.redirect(new URL(loginRoute, req.url));
 		}
 
-		// Reescribe internamente a la ruta del admin
-		url.pathname = `/_admin${url.pathname}`;
-		return NextResponse.rewrite(url);
+		// Si hay sesión o estás en la página de login, permite el acceso
+		return res;
 	}
 
-	// Bloquear el acceso a /admin por la ruta normal
-	if (url.pathname.startsWith('/admin')) {
-		url.pathname = '/';
-		return NextResponse.redirect(url);
-	}
-
-	return res;
+	// Para cualquier otra ruta, permite el acceso directamente
+	return NextResponse.redirect(new URL(loginRoute, req.url));;
 }
+
+// Configuración para que el middleware se ejecute solo en las rutas que coinciden con el matcher
+export const config = {
+	matcher: '/admin/:path*',
+};

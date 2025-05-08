@@ -2,7 +2,7 @@
 import { supabase } from '@/utils/supabaseClient';
 import { useState } from 'react';
 
-export default function LoginPage() {
+export default function Login() {
 	const [email, setEmail] = useState('');
 
 	const handleLogin = async () => {
@@ -11,8 +11,9 @@ export default function LoginPage() {
 		else alert('Revisa tu correo para entrar');
 	};
 
+	console.log('login')
 	return (
-		<div>
+		<div className='page'>
 			<h1>Inicia sesión como administrador</h1>
 			<input
 				type="email"
