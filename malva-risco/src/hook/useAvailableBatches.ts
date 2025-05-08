@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { supabase } from '@/app/api/farmimgs/supabase/supabaseClient';
+import { supabase } from '@/utils/supabaseClient';
 import { Batch } from '@/model/store/batch.type';
 import { BatchDao, BatchDataMapper, PriceDao } from '@/model/store/batch.dao';
 
