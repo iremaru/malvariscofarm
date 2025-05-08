@@ -32,7 +32,11 @@ export const Navbar = () => {
 		<header className={styles.header}>
 			<div className={styles.container}>
 				<div>
-					<Image src="/logo.svg" alt="Logo Malva-Risco" className={styles.logo_malva} width={50} height={50} />
+					<Image src="/logo.svg"
+						alt="Logo Malva-Risco"
+						className={styles.logo_malva}
+						width={50}
+						height={50} />
 					<p className={styles.title}>Finca Malva-Risco</p>
 				</div>
 				{isMobile

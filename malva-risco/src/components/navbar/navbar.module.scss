@@ -25,6 +25,7 @@
 		>div {
 			display: flex;
 			align-items: center;
+			gap: 1rem;
 
 			.title {
 				font-family: $font-title;
@@ -93,7 +94,7 @@
 
 
 	.logo_malva {
-		height: 10px;
-		width: 10px;
+		height: 64px;
+		width: 64px;
 	}
 }
