@@ -26,7 +26,7 @@ export async function middleware(req: NextRequest) {
 	}
 
 	// Para cualquier otra ruta, permite el acceso directamente
-	return NextResponse.redirect(new URL(loginRoute, req.url));;
+	return res;
 }
 
 // Configuración para que el middleware se ejecute solo en las rutas que coinciden con el matcher
