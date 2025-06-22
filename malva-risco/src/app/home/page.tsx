@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import styles from "./page.module.scss";
-import CarouselFarm from "@/components/carousel_farm/carouselFarm";
-import { ProductShowroom } from "@/components/productShowroom/productShowroom";
+import CarouselFarm from "@/app/home/components/carousel_farm/carouselFarm";
+import { ProductShowroom } from "@/app/home/components/productShowroom/productShowroom";
 
 export default function Home() {
   return (

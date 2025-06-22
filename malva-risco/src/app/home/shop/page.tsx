@@ -2,7 +2,7 @@
 
 import React from "react";
 import style from "./page.module.scss";
-import { ProductCard } from "@/components/store/productCard/productCard";
+import { ProductCard } from "@/app/home/components/store/productCard/productCard";
 import { useAvailableBatches } from "@/hook/useAvailableBatches";
 
 export default function Page() {

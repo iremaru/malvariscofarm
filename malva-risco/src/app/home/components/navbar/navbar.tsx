@@ -14,16 +14,16 @@ export const Navbar = () => {
 
   const navLinks = (
     <>
-      <Link href='/#inicio' className={styles.link}>
+      <Link href='/home#inicio' className={styles.link}>
         Inicio
       </Link>
-      <Link href='/#finca' className={styles.link}>
+      <Link href='/home#finca' className={styles.link}>
         La Finca
       </Link>
-      <Link href='/#productos' className={styles.link}>
+      <Link href='/home#productos' className={styles.link}>
         Productos
       </Link>
-      <Link href='/shop' className={styles.link}>
+      <Link href='/home/shop' className={styles.link}>
         Tienda
       </Link>
     </>
