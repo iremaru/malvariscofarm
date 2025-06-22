@@ -7,6 +7,8 @@ $color-brand-dark: #4c0449;
 $font-title: var(--font-nunito);
 $text-remarked: oklch(65.276% 0.18817 250.988);
 
+$navbar-height: 100px;
+
 @media (prefers-color-scheme: dark) {
 	:root {
 		$background: #1a2b03;
