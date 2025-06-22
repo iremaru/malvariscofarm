@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@use "./variables" as *;
 
 html,
 body {
@@ -160,3 +160,8 @@ footer {
 		color-scheme: dark;
 	}
 } */
+
+.text_remarked {
+	font-weight: 600;
+	color: $text-remarked;
+}

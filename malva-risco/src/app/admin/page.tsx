@@ -1,11 +1,12 @@
-'use client'
+"use client";
+
+import { LazyAdminApp } from "./components/reactAdminApp/lazyAdminApp";
 import styles from "./page.module.scss";
 
-export default function Admin() {
-
-	return (
-		<div className={`page ${styles.page}`}>
-			<h1>ADMIN</h1>
-		</div>
-	);
+export default function AdminPanel() {
+  return (
+    <div className={styles.page}>
+      <LazyAdminApp />
+    </div>
+  );
 }
