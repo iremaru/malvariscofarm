@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Nunito } from "next/font/google";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import Image from "next/image";
+import { Geist, Geist_Mono, Nunito } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { BtnWhatsapp } from "@/app/home/components/btn_whatsapp/btnWhatsapp";
-import { Navbar } from "@/app/home/components/navbar/navbar";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@/app/globals.scss";
 
 config.autoAddCss = false;
