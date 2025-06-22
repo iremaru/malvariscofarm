@@ -14,12 +14,11 @@ import {
   TextField,
   TextInput,
 } from "react-admin";
-import styles from "../../../page.module.scss";
 import Image from "next/image";
 
 export const ProductList = () => {
   return (
-    <div className={styles.productList}>
+    <div>
       <h1>Productos Registrados</h1>
       <List>
         <Datagrid size='medium' rowClick={(id) => `/product/${id}`}>
