@@ -28,7 +28,7 @@ export const ProductList = () => {
             render={(record) =>
               record.img_url ? (
                 <Image
-                  src={`https://eleoxppxrjrvnqdwrdiz.supabase.co/storage/v1/object/public/product.img/${record.img_url}`}
+                  src={`${process.env.NEXT_PUBLIC_IMG_BASE_URL}${record.img_url}`}
                   alt={`Imagen de ${record.variety_name}`}
                   width='100'
                   height='100'
