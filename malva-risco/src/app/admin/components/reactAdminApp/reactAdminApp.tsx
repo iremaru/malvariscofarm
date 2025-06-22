@@ -1,7 +1,6 @@
-"use client";
 import React from "react";
 import { Box } from "@mui/material";
-import { Admin, EditGuesser, nanoLightTheme, Resource } from "react-admin";
+import { Admin, EditGuesser, radiantLightTheme, Resource } from "react-admin";
 import supabaseDataProvider from "@/lib/supabaseDataProvider";
 import { ProductCreate, ProductEdit, ProductList } from "./products/products";
 import {
@@ -15,11 +14,12 @@ import CategoryIcon from "@mui/icons-material/Category";
 import AppleIcon from "@mui/icons-material/Apple";
 import Diversity2Icon from "@mui/icons-material/Diversity2";
 import InboxIcon from "@mui/icons-material/Inbox";
+import styles from "./reactAdminApp.module.scss";
 
 const ReactAdminApp = () => {
   return (
-    <Box>
-      <Admin dataProvider={supabaseDataProvider} theme={nanoLightTheme}>
+    <Box className={styles.adminPanel}>
+      <Admin dataProvider={supabaseDataProvider} theme={radiantLightTheme}>
         <Resource
           name='product_with_categories'
           icon={AppleIcon}
