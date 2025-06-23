@@ -19,20 +19,7 @@ import {
 export const BatchList = () => {
   const description = (
     <p>
-      Registra aquí los lotes de producción de tus productos, incluyendo la
-      fecha de producción, fecha de caducidad, peso por unidad y total de
-      unidades.
-      <br />
-      Puedes utilizar esta información para gestionar la disponibilidad y el
-      inventario de tus productos.
-      <br />A la hora de hacer etiquetas{" "}
-      <span className='text_remarked'>(próximamente)</span>, la fecha de
-      producción y de caducidad aparecerán directamente en las etiquetas sin
-      necesidad de configuración extra. Para productos elaborados la fecha de
-      producción deberá coincidir con la fecha de elaboración del producto. Pero
-      para productos frescos puedes poner la fecha en la que es adecuado
-      comenzar la cosecha, sin necesidad de que el producto se haya cosechado
-      realmente, para que no pierda frescura.
+      Usa esta información para gestionar la disponibilidad de tus productos.
     </p>
   );
 
@@ -99,7 +86,7 @@ const CreateEditBatchTotalWeight = () => (
   <NumberInput
     source='weight_total'
     label='Gr. totales'
-    helperText='El peso total del lote, útil para llevar el inventario'
+    helperText='El peso total del lote antes de comenzar su venta'
   />
 );
 const CreateEditBatchUnitsTotal = () => (
