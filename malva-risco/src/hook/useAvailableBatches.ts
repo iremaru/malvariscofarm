@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { supabase } from '@/utils/supabaseClient';
+import { SupabaseClient } from '@/utils/supabase/client';
 import { Batch } from '@/model/store/batch.type';
 import { BatchDao, BatchDataMapper, PriceDao } from '@/model/store/batch.dao';
 
@@ -20,7 +20,7 @@ export function useAvailableBatches() {
 	useEffect(() => {
 		const fetchBatches = async () => {
 			setLoading(true);
-			const { data: batchesData, error: bachError } = await supabase
+			const { data: batchesData, error: bachError } = await SupabaseClient
 				.from('batch')
 				.select(`
 					id,
@@ -46,7 +46,7 @@ export function useAvailableBatches() {
 				.map((batch: any) => batch.product_id)
 				.filter((id) => id !== undefined);
 
-			const { data: priceData, error: priceError } = await supabase
+			const { data: priceData, error: priceError } = await SupabaseClient
 				.from('price')
 				.select(`
 					product_id,

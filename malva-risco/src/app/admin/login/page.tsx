@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/utils/supabaseClient";
+import { SupabaseClient } from "@/utils/supabase/client";
 import style from "./page.module.scss";
 import {
   Backdrop,
@@ -28,7 +28,7 @@ export default function Login() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await SupabaseClient.auth.signInWithPassword({
         email,
         password,
       });

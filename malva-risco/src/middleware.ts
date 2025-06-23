@@ -1,14 +1,15 @@
-import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
+//import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
+import { updateSession } from './utils/supabase/middleware';
 import { NextResponse } from 'next/server';
 
 import type { NextRequest } from 'next/server';
 
 export async function middleware(req: NextRequest) {
 	const res = NextResponse.next();
-	const supabase = createMiddlewareClient({ req, res });
-	const {
+	/* const {
 		data: { session },
-	} = await supabase.auth.getSession();
+	} = await supabase.auth.getSession(); */
+	const session = await updateSession(req);
 
 	// Rutas que deseas proteger
 	const adminRoutes = /^\/admin(\/.*)?$/;

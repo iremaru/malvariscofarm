@@ -1,4 +1,4 @@
-import { supabase } from '../utils/supabaseClient';
+import { SupabaseClient } from '../utils/supabase/client';
 import {
 	DataProvider,
 	DeleteManyParams,
@@ -20,7 +20,7 @@ const supabaseDataProvider: DataProvider = {
 			perPage: 8,
 		};
 		const selectClause = '*';
-		const { data, error, count } = await supabase
+		const { data, error, count } = await SupabaseClient
 			.from(resource)
 			.select(selectClause, { count: 'exact' })
 			.range(
@@ -37,7 +37,7 @@ const supabaseDataProvider: DataProvider = {
 	},
 
 	getOne: async (resource, params) => {
-		const { data, error } = await supabase
+		const { data, error } = await SupabaseClient
 			.from(resource)
 			.select('*')
 			.eq('id', params.id)
@@ -48,7 +48,7 @@ const supabaseDataProvider: DataProvider = {
 	},
 
 	create: async (resource, params) => {
-		const { data, error } = await supabase
+		const { data, error } = await SupabaseClient
 			.from(resource)
 			.insert(params.data)
 			.select()
@@ -59,7 +59,7 @@ const supabaseDataProvider: DataProvider = {
 	},
 
 	update: async (resource, params) => {
-		const { data, error } = await supabase
+		const { data, error } = await SupabaseClient
 			.from(resource)
 			.update(params.data)
 			.eq('id', params.id)
@@ -72,7 +72,7 @@ const supabaseDataProvider: DataProvider = {
 
 	delete: async (resource, params) => {
 		console.log('Deleting resource:', resource, 'with params:', params);
-		const { data, error } = await supabase
+		const { data, error } = await SupabaseClient
 			.from(resource)
 			.delete()
 			.eq('id', params.id)
@@ -83,7 +83,7 @@ const supabaseDataProvider: DataProvider = {
 		return { data };
 	},
 	getMany: async function <RecordType extends RaRecord>(resource: string, params: GetManyParams<RecordType> & QueryFunctionContext): Promise<GetManyResult<RecordType>> {
-		const { data, error } = await supabase
+		const { data, error } = await SupabaseClient
 			.from(resource)
 			.select('*')
 			.in('id', params.ids);
@@ -98,7 +98,7 @@ const supabaseDataProvider: DataProvider = {
 		throw new Error('Function not implemented.');
 	},
 	deleteMany: async function <RecordType extends RaRecord>(resource: string, params: DeleteManyParams<RecordType>): Promise<DeleteManyResult<RecordType>> {
-		const { data, error } = await supabase
+		const { data, error } = await SupabaseClient
 			.from(resource)
 			.delete()
 			.eq('id', params.ids)
