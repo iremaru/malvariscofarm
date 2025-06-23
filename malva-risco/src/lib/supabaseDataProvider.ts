@@ -92,9 +92,11 @@ const supabaseDataProvider: DataProvider = {
 
 	},
 	getManyReference: function <RecordType extends RaRecord>(resource: string, params: GetManyReferenceParams & QueryFunctionContext): Promise<GetManyReferenceResult<RecordType>> {
+		console.log(resource, params)
 		throw new Error('Function not implemented.');
 	},
 	updateMany: function <RecordType extends RaRecord>(resource: string, params: UpdateManyParams): Promise<UpdateManyResult<RecordType>> {
+		console.log(resource, params)
 		throw new Error('Function not implemented.');
 	},
 	deleteMany: async function <RecordType extends RaRecord>(resource: string, params: DeleteManyParams<RecordType>): Promise<DeleteManyResult<RecordType>> {
