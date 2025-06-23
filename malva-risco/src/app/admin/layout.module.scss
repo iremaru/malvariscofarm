@@ -1,8 +1,8 @@
-body {
+body:has(.page__admin) {
 	background-color: rgb(237, 239, 235);
 	display: flex;
 
-	.page {
+	.page__admin {
 		padding: 1rem 2rem;
 		width: 100%;
 	}

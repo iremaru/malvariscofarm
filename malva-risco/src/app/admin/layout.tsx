@@ -12,7 +12,7 @@ export default function AdminLayout({
   return (
     <>
       <AdminNav />
-      <main className={styles.page}>{children}</main>
+      <main className={styles.page__admin}>{children}</main>
     </>
   );
 }
