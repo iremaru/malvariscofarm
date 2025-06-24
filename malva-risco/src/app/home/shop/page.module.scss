@@ -13,4 +13,10 @@
 		grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
 		gap: 1rem;
 	}
+
+	.page__title {
+		&::before {
+			content: '🛒';
+		}
+	}
 }

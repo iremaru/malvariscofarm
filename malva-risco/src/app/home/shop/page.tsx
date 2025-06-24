@@ -1,22 +1,22 @@
 "use client";
 
-import React from "react";
-import style from "./page.module.scss";
+import React, { Suspense } from "react";
 import { ProductCard } from "@/app/home/components/store/productCard/productCard";
 import { useAvailableBatches } from "@/hook/useAvailableBatches";
+import style from "./page.module.scss";
 
 export default function Page() {
-  const { batches, loading } = useAvailableBatches();
-
-  if (loading) return <p>Cargando productos disponibles...</p>;
+  const { batches } = useAvailableBatches();
 
   return (
     <div className={style.page__store}>
       <h1 className={style.page__title}>Tienda</h1>
       <div className={style.productGrid}>
-        {batches.map((batch) => (
-          <ProductCard key={batch.id} batch={batch} />
-        ))}
+        <Suspense fallback={<p>Cargando productos disponibles...</p>}>
+          {batches.map((batch) => (
+            <ProductCard key={batch.id} batch={batch} />
+          ))}
+        </Suspense>
       </div>
     </div>
   );
