@@ -1,26 +1,49 @@
 import {
   ArrayField,
+  ArrayInput,
   ChipField,
   Create,
+  CreateButton,
   Datagrid,
   DateField,
   Edit,
+  ExportButton,
   FunctionField,
+  ImageField,
+  ImageInput,
   List,
+  /* FilterButton,
+  ListActions,
+  SelectColumnsButton, */
   ReferenceField,
   ReferenceInput,
+  required,
   SimpleForm,
+  SimpleFormIterator,
   SingleFieldList,
   TextField,
   TextInput,
+  TopToolbar,
+  useRecordContext,
 } from "react-admin";
 import Image from "next/image";
+
+const ProductListActions = () => (
+  <TopToolbar>
+    {/*
+    <SelectColumnsButton />
+	 <FilterButton /> 
+	*/}
+    <CreateButton resource='product' />
+    <ExportButton />
+  </TopToolbar>
+);
 
 export const ProductList = () => {
   return (
     <div>
       <h1>Productos Registrados</h1>
-      <List>
+      <List actions={<ProductListActions />}>
         <Datagrid size='medium' rowClick={(id) => `/product/${id}`}>
           <FunctionField
             label='Imagen'
@@ -66,83 +89,74 @@ export const ProductList = () => {
   );
 };
 
-/* 
-interface ProductCategory {
-  id: string;
-  displayName: string;
-  name: string;
-  parent_name?: string;
-  parent_id?: string;
-}
-
-const ProductCategories = () => {
+const CreateEditProductFamily = () => (
+  <ReferenceInput
+    source='family_id'
+    reference='product_family'
+    label='Familia científica'
+  />
+);
+const CreateEditProductVariety = () => (
+  <TextInput source='variety_name' label='Nombre de la variedad' />
+);
+const CreateEditProductSaleName = () => (
+  <TextInput
+    source='sale_name'
+    label='Nombre comercial'
+    required
+    validate={required(
+      "Es necesario poner un nombre comercial para mostrarlo en la web"
+    )}
+  />
+);
+const CreateEditProductDescription = () => (
+  <TextInput
+    source='description'
+    label='descripción'
+    helperText='Descripción para mostrar en la web'
+  />
+);
+const CreateEditProductPreservation = () => (
+  <ArrayInput
+    source='preservation_instructions'
+    label='Instrucciones de conservación'
+  >
+    <SimpleFormIterator>
+      <TextInput source='' />
+    </SimpleFormIterator>
+  </ArrayInput>
+);
+const CreateEditProductImg = () => {
   const record = useRecordContext();
-  const productId: Identifier | undefined = record?.id;
-
-  const dataProvider = useDataProvider();
-  const { data: allCategories } = useGetList("category");
-  const { data: productsView } = useGetList("product_with_categories");
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-
-  const toggleCategory = (id: string) => {
-    setSelectedCategories((prev) =>
-      prev.includes(id) ? prev.filter((cid) => cid !== id) : [...prev, id]
-    );
-  };
-  useEffect(() => {
-    if (productId) {
-      console.log("PRODUCTS VIEW: ", productsView);
-      console.log("ALL CATEGORIES: ", allCategories);
-      if (selectedCategories.length === 0 && productsView) {
-        const product = productsView.find((p) => p.id === productId);
-        if (product?.categories) {
-          const categoryIds = product.categories.map(
-            (cat: ProductCategory) => cat.id
-          );
-          setSelectedCategories(categoryIds);
-        }
-      }
-    }
-  }, [
-    productsView,
-    allCategories,
-    productId,
-    dataProvider,
-    selectedCategories.length,
-  ]);
-
-  return allCategories?.map((cat) => (
-    <FormControlLabel
-      key={cat.id}
-      control={
-        <Checkbox
-          checked={selectedCategories.includes(cat.id)}
-          onChange={() => toggleCategory(cat.id)}
+  return (
+    <ImageInput source='img_url' label='Imagen del producto'>
+      {record?.img_url ? (
+        <Image
+          alt={`Imagen de ${record?.variety_name}`}
+          src={`${process.env.NEXT_PUBLIC_IMG_BASE_URL}${record?.img_url}`}
+          width='100'
+          height='100'
+          style={{ objectFit: "cover" }}
         />
-      }
-      label={cat.name}
-    />
-  ));
-}; */
+      ) : (
+        <ImageField source='src' />
+      )}
+    </ImageInput>
+  );
+};
 
 export const ProductEdit = () => {
   return (
     <div>
       <h1>Edit Product</h1>
       <Edit redirect={() => `/product_with_categories`}>
-        <SimpleForm
-        /* onSubmit={(data: FieldValues) => {
-            console.log("Form submitted with data:", data);
-          }} */
-        >
-          <ReferenceInput source='family_id' reference='product_family' />
-          <TextInput source='variety_name' /> <TextInput source='sale_name' />
-          <TextInput source='description' />
-          <TextInput source='preservation_instructions' />
-          <TextInput source='img_url' />
-          {/* TODO: Handle categories selection
-		  <ProductCategories /> 
-		  */}
+        <SimpleForm mode='onBlur' reValidateMode='onBlur'>
+          <CreateEditProductFamily />
+          <CreateEditProductVariety />
+          <CreateEditProductSaleName />
+          <CreateEditProductDescription />
+          <CreateEditProductPreservation />
+          <CreateEditProductImg />
         </SimpleForm>
       </Edit>
     </div>
@@ -154,16 +168,13 @@ export const ProductCreate = () => {
     <div>
       <h1>Create Product</h1>
       <Create redirect={() => `/product_with_categories`}>
-        <SimpleForm
-        /* onSubmit={(data: FieldValues) => {
-            console.log("Form submitted with data:", data);
-          }} */
-        >
-          <ReferenceInput source='family_id' reference='product_family' />
-          <TextInput source='variety_name' /> <TextInput source='sale_name' />
-          <TextInput source='description' />
-          <TextInput source='preservation_instructions' />
-          <TextInput source='img_url' />
+        <SimpleForm mode='onBlur' reValidateMode='onBlur'>
+          <CreateEditProductFamily />
+          <CreateEditProductVariety />
+          <CreateEditProductSaleName />
+          <CreateEditProductDescription />
+          <CreateEditProductPreservation />
+          <CreateEditProductImg />
         </SimpleForm>
       </Create>
     </div>
