@@ -14,7 +14,9 @@ import CategoryIcon from "@mui/icons-material/Category";
 import AppleIcon from "@mui/icons-material/Apple";
 import Diversity2Icon from "@mui/icons-material/Diversity2";
 import InboxIcon from "@mui/icons-material/Inbox";
+import EuroSymbolIcon from "@mui/icons-material/EuroSymbol";
 import styles from "./reactAdminApp.module.scss";
+import { PriceCreate, PriceEdit, PriceList } from "./price/price";
 
 const ReactAdminApp = () => {
   return (
@@ -22,6 +24,7 @@ const ReactAdminApp = () => {
       <Admin dataProvider={supabaseDataProvider} theme={radiantLightTheme}>
         <Resource
           name='product_with_categories'
+          options={{ label: "Productos" }}
           icon={AppleIcon}
           recordRepresentation={"variety_name"}
           list={ProductList}
@@ -29,8 +32,8 @@ const ReactAdminApp = () => {
         <Resource
           name='product'
           recordRepresentation={"sale_name"}
-          edit={ProductEdit}
           create={ProductCreate}
+          edit={ProductEdit}
           options={{ label: " " }}
         />
         <Resource
@@ -59,6 +62,15 @@ const ReactAdminApp = () => {
           edit={BatchEdit}
           create={BatchCreate}
           options={{ label: "Remesas" }}
+        />
+        <Resource
+          name='price'
+          icon={EuroSymbolIcon}
+          recordRepresentation={"pvp_eur"}
+          list={PriceList}
+          edit={PriceEdit}
+          create={PriceCreate}
+          options={{ label: "Precios" }}
         />
       </Admin>
     </Box>
