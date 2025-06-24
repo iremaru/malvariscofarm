@@ -3,5 +3,5 @@
 import dynamic from "next/dynamic";
 
 export const LazyAdminApp = dynamic(() => import("./reactAdminApp"), {
-  ssr: false,
+  ssr: true,
 });
