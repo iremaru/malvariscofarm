@@ -8,6 +8,7 @@ import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import styles from "./adminNav.module.scss";
 import LocalFloristIcon from "@mui/icons-material/LocalFlorist";
 import { usePathname } from "next/navigation";
+import LogoutBtn from "../logoutBtn/logoutBtn";
 
 const adminRoutes = [
   {
@@ -55,6 +56,7 @@ export const AdminNav = () => {
           ))}
         </ul>
       </nav>
+      <LogoutBtn />
     </aside>
   );
 };

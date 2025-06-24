@@ -1,9 +1,10 @@
+"use server";
 import React from "react";
 import styles from "./dashboard.module.scss";
 
-export default function AdminDashboard() {
+export default async function AdminDashboard() {
   return (
-    <div className={styles.page}>
+    <div className={styles.page__dashboard}>
       <h1>Dashboard</h1>
       <div>
         <h2>Gastos</h2>
