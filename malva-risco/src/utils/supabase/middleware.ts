@@ -52,7 +52,6 @@ export async function updateSession(request: NextRequest) {
 			return NextResponse.redirect(url)
 		}
 	} else {
-		console.log('EL USUARIO EXISTE')
 		if (request.nextUrl.pathname.startsWith('/admin/login')) {
 			const url = request.nextUrl.clone()
 			url.pathname = '/admin/dashboard'

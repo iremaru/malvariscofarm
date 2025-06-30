@@ -1,0 +1,19 @@
+.label__options {
+	background-color: rgb(213, 210, 214);
+	display: flex;
+	flex-direction: column;
+
+
+	.labelcard_displayer {
+		width: 100%;
+		height: fit-content;
+		padding: 23px;
+
+		display: flex;
+		justify-content: space-around;
+		gap: 13px;
+
+		overflow: hidden;
+		overflow-x: auto;
+	}
+}
