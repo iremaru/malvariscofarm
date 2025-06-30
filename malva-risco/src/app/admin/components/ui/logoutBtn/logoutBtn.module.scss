@@ -1,4 +1,13 @@
 .logout_btn {
+	&[type='button'] {
+		background-color: #aa8dca;
+
+		&:hover {
+
+			background-color: #37156f;
+		}
+	}
+
 	>p {
 		font-size: 10pt;
 		line-height: 1;
