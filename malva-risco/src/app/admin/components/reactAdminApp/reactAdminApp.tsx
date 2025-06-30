@@ -1,12 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import {
-  Admin,
-  EditGuesser,
-  ListGuesser,
-  radiantLightTheme,
-  Resource,
-} from "react-admin";
+import { Admin, EditGuesser, radiantLightTheme, Resource } from "react-admin";
 import supabaseDataProvider from "@/lib/supabaseDataProvider";
 import { ProductCreate, ProductEdit, ProductList } from "./products/products";
 import {
@@ -24,6 +18,7 @@ import EuroSymbolIcon from "@mui/icons-material/EuroSymbol";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import styles from "./reactAdminApp.module.scss";
 import { PriceCreate, PriceEdit, PriceList } from "./price/price";
+import { ProductOnSaleList } from "./sale_batch/saleBatch";
 
 const ReactAdminApp = () => {
   return (
@@ -83,7 +78,7 @@ const ReactAdminApp = () => {
           name='product_on_sale'
           icon={InventoryIcon}
           recordRepresentation={"sale_name"}
-          list={ListGuesser}
+          list={ProductOnSaleList}
           edit={EditGuesser}
           create={EditGuesser}
           options={{ label: "Productos a la venta" }}
